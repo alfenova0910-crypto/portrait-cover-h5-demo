@@ -301,3 +301,6 @@
 
 /* V7: force a real blackout and clear the chapter title before portraits arrive. */
 .summon-video{position:absolute!important;inset:0;z-index:4}.summon-video-outro{z-index:20!important;background:#050505!important;opacity:0;animation:solidBlack 1.25s cubic-bezier(.65,0,.25,1) forwards!important}.is-outro .summon-video{opacity:0!important;visibility:visible!important;transition:opacity 1.25s linear!important}.clean-space.is-populated .space-copy{opacity:0!important;transform:translateY(-7px)!important;transition:opacity .5s ease,transform .5s ease!important}
+
+/* V8: remove the literal horizon line; keep only diffused depth. */
+.clean-space .space-horizon{display:none}.clean-space .space-void{background:radial-gradient(ellipse at 51% 54%,rgba(180,137,59,.14),transparent 13%),radial-gradient(ellipse at 50% 64%,rgba(239,226,195,.035),transparent 45%),linear-gradient(158deg,#030303 2%,#0a0906 55%,#030303 100%)}
