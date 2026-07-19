@@ -264,14 +264,6 @@ export default function SummonCover({ config, onComplete, onFallback, onActivate
       {/* 播放控制（playing 时显示） */}
       {phase === "playing" && (
         <>
-          <button className="summon-skip" onClick={() => {
-            if (rafRef.current) cancelAnimationFrame(rafRef.current);
-            if (fadeRef.current) clearTimeout(fadeRef.current);
-            if (fallbackRef.current) clearTimeout(fallbackRef.current);
-            handleVideoEnded();
-          }}>
-            跳过片头
-          </button>
         </>
       )}
 
