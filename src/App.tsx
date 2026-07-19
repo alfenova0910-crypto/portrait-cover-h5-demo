@@ -3,12 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import SummonCover from "./SummonCover";
 import MemorySpace from "./MemorySpace";
 import ChapterPortal from "./ChapterPortal";
+import Reflection from "./Reflection";
 import type { OrderConfig } from "./SummonCover";
 import orderData from "./config/order.json";
 
 const config = orderData as OrderConfig;
 
-type Phase = "cover" | "intro" | "portal" | "memory" | "gallery" | "ending";
+type Phase = "cover" | "intro" | "portal" | "memory" | "reflection" | "gallery" | "ending";
 
 export default function Home() {
   const [phase, setPhase] = useState<Phase>("cover");
@@ -93,7 +94,11 @@ export default function Home() {
   }
 
   if (phase === "memory") {
-    return <MemorySpace config={config} onComplete={() => setPhase("ending")} />;
+    return <MemorySpace config={config} onComplete={() => setPhase("reflection")} />;
+  }
+
+  if (phase === "reflection") {
+    return <Reflection config={config} onComplete={() => setPhase("ending")} />;
   }
 
   // ---- 保留的旧照片展示（不再从主流程进入）
