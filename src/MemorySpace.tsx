@@ -20,7 +20,7 @@ export default function MemorySpace({ config, onComplete }: { config: OrderConfi
   const open = (index: number) => { setSelected(index); setOpened(prev => prev.includes(index) ? prev : [...prev, index]); };
   const styleFor = (node: Node): CSSProperties => ({ left: `${node.x}%`, top: `${node.y}%`, backgroundImage: `url(${config.photos[node.photo]})` });
 
-  return <main className="memory-space clean-space">
+  return <main className={`memory-space clean-space ${visible.length ? "is-populated" : ""}`}>
     <div className="space-void" /><div className="space-horizon" /><div className="space-ray space-ray-one" /><div className="space-ray space-ray-two" />
     <div className="space-copy"><span>CHAPTER / ONE</span><h1>看见自己</h1><p>三束微光，正在靠近</p></div>
     {nodes.map((node, index) => <button key={node.title} className={`memory-node node-${index} ${visible.includes(index) ? "is-open" : ""} ${index === 0 ? "is-primary" : ""}`} style={styleFor(node)} onClick={() => open(index)}>

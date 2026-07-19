@@ -268,7 +268,7 @@ export default function SummonCover({ config, onComplete, onFallback, onActivate
             if (rafRef.current) cancelAnimationFrame(rafRef.current);
             if (fadeRef.current) clearTimeout(fadeRef.current);
             if (fallbackRef.current) clearTimeout(fallbackRef.current);
-            onFallback();
+            handleVideoEnded();
           }}>
             跳过片头
           </button>
