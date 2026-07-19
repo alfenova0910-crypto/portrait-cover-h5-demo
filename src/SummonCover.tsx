@@ -32,7 +32,7 @@ const VIDEO_TIMEOUT_MS = 8000;
 const FADE_IN_MS = 300;
 const REVEAL_HOLD_MS = 650;
 const PORTRAIT_DIM_MS = 850;
-const VIDEO_OUTRO_MS = 760;
+const VIDEO_OUTRO_MS = 1250;
 
 export default function SummonCover({ config, onComplete, onFallback, onActivate }: Props) {
   const [phase, setPhase] = useState<Phase>("idle");
@@ -281,7 +281,7 @@ export default function SummonCover({ config, onComplete, onFallback, onActivate
         </>
       )}
 
-      <div className="summon-cover-title" style={{ opacity: progress >= 35 ? Math.min(1, (progress - 35) / 35) : 0 }}>此刻的我</div>
+      {phase !== "loading" && phase !== "playing" && phase !== "outro" && <div className="summon-cover-title" style={{ opacity: progress >= 35 ? Math.min(1, (progress - 35) / 35) : 0 }}>此刻的我</div>}
 
       {/* 引导提示（idle 时显示） */}
       {phase === "idle" && (
