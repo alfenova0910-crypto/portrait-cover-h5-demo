@@ -14,10 +14,17 @@ export default function MemorySpace({ config, onComplete }: { config: OrderConfi
   const [opened, setOpened] = useState<number[]>([]);
 
   useEffect(() => {
-    const timers = nodes.map((node, index) => window.setTimeout(() => setVisible(prev => [...prev, index]), node.delay));
-    return () => timers.forEach(window.clearTimeout);
+    const timer = window.setTimeout(() => setVisible([0]), 1950);
+    return () => window.clearTimeout(timer);
   }, []);
   const open = (index: number) => { setSelected(index); setOpened(prev => prev.includes(index) ? prev : [...prev, index]); };
+  const close = () => {
+    const current = selected;
+    setSelected(null);
+    if (current !== null && current < nodes.length - 1) {
+      window.setTimeout(() => setVisible(prev => prev.includes(current + 1) ? prev : [...prev, current + 1]), 420);
+    }
+  };
   const styleFor = (node: Node): CSSProperties => ({ left: `${node.x}%`, top: `${node.y}%`, backgroundImage: `url(${config.photos[node.photo]})` });
 
   return <main className={`memory-space clean-space ${visible.length ? "is-populated" : ""}`}>
@@ -28,6 +35,6 @@ export default function MemorySpace({ config, onComplete }: { config: OrderConfi
       <div className="memory-line" aria-hidden="true"><b>{node.title}</b><span>{node.line}</span></div>
     </button>)}
     {opened.length === nodes.length && <button className="space-finish" onClick={onComplete}>收下全部影像 <b>→</b></button>}
-    {selected !== null && <div className="memory-lightbox" onClick={() => setSelected(null)}><div className="memory-reveal" onClick={e => e.stopPropagation()}><img src={config.photos[nodes[selected].photo]} alt={nodes[selected].title} /><p><b>{nodes[selected].title}</b>{nodes[selected].line}</p><button onClick={() => setSelected(null)}>×</button></div></div>}
+    {selected !== null && <div className="memory-lightbox" onClick={close}><div className="memory-reveal" onClick={e => e.stopPropagation()}><img src={config.photos[nodes[selected].photo]} alt={nodes[selected].title} /><p><b>{nodes[selected].title}</b>{nodes[selected].line}</p><button onClick={close}>×</button></div></div>}
   </main>;
 }
