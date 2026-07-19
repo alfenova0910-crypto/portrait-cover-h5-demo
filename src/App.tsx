@@ -103,6 +103,6 @@ export default function Home() {
   return <main className="endingScene">
     <div className="endingPortrait"><img src={photos[5]} alt="人物高光收尾" /></div>
     <div className="endingCopy"><p>YOUR PORTRAIT / 2026</p><h1>谢谢你，<br />认真看见自己。</h1><span>愿这些影像在未来某一天，<br />仍能提醒你此刻的笃定与光亮。</span></div>
-    <div className="endingActions"><a href="./assets/人生封面_全部照片.zip" download>下载全部照片</a><button onClick={() => setPhase("cover")}>再次观看</button><small>照片仅用于本次个人影像交付，请妥善保存</small></div>
+    <div className="endingActions"><a href="./assets/all-photos.zip" download>下载全部照片</a><button onClick={() => setPhase("cover")}>再次观看</button><small>照片仅用于本次个人影像交付，请妥善保存</small></div>
   </main>;
 }
