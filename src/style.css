@@ -289,3 +289,7 @@
 
 /* Sound needs a deliberate first touch on mobile; light only enters once. */
 .summon-audio-start{position:absolute;z-index:7;right:22px;top:28px;border:0;background:rgba(7,7,7,.28);color:rgba(239,228,207,.6);font-size:10px;letter-spacing:.15em;padding:9px 10px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.clean-space .node-light{animation:nodeScan 1.6s ease-out 1 forwards!important;opacity:.34}.clean-space .memory-node.is-open .node-light{animation:nodeScan 1.6s ease-out 1 forwards!important}
+
+
+/* V6: one hero portrait, two distant memory fragments. */
+.clean-space .memory-node.is-primary{width:42vw;height:55vh;max-width:198px;max-height:410px;z-index:5}.clean-space .memory-node.node-1{width:18vw;height:25vh;max-width:88px;max-height:190px;z-index:4;filter:brightness(.7) saturate(.72)}.clean-space .memory-node.node-2{width:20vw;height:27vh;max-width:98px;max-height:205px;z-index:4;filter:brightness(.78) saturate(.78)}.clean-space .memory-node.node-1:after,.clean-space .memory-node.node-2:after{content:"";position:absolute;inset:-8px;border:1px solid rgba(225,189,113,.12);pointer-events:none}.clean-space .memory-node.node-1 .node-light,.clean-space .memory-node.node-2 .node-light{opacity:.18}.clean-space .memory-node.node-1:hover,.clean-space .memory-node.node-2:hover{filter:brightness(1)!important}
