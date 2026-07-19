@@ -3,9 +3,9 @@ import type { OrderConfig } from "./SummonCover";
 
 type Node = { photo: number; title: string; line: string; x: number; y: number; delay: number };
 const nodes: Node[] = [
-  { photo: 0, title: "看见", line: "她不必成为谁的标准。", x: 51, y: 56, delay: 1120 },
-  { photo: 2, title: "靠近", line: "光落下来，她站在自己的中心。", x: 17, y: 31, delay: 1320 },
-  { photo: 4, title: "留下", line: "这一刻，值得被认真收藏。", x: 83, y: 70, delay: 1510 },
+  { photo: 0, title: "看见", line: "她不必成为谁的标准。", x: 51, y: 56, delay: 2350 },
+  { photo: 2, title: "靠近", line: "光落下来，她站在自己的中心。", x: 17, y: 31, delay: 2670 },
+  { photo: 4, title: "留下", line: "这一刻，值得被认真收藏。", x: 83, y: 70, delay: 2990 },
 ];
 
 export default function MemorySpace({ config, onComplete }: { config: OrderConfig; onComplete: () => void }) {

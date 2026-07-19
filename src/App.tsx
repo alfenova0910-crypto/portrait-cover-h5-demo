@@ -40,7 +40,7 @@ export default function Home() {
 
   useEffect(() => {
     if (phase === "intro") {
-      const timeout = window.setTimeout(() => setIntroReady(true), 1650);
+      const timeout = window.setTimeout(() => setIntroReady(true), 980);
       return () => window.clearTimeout(timeout);
     }
   }, [phase]);

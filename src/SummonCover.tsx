@@ -32,7 +32,7 @@ const VIDEO_TIMEOUT_MS = 8000;
 const FADE_IN_MS = 300;
 const REVEAL_HOLD_MS = 650;
 const PORTRAIT_DIM_MS = 850;
-const VIDEO_OUTRO_MS = 1250;
+const VIDEO_OUTRO_MS = 700;
 
 export default function SummonCover({ config, onComplete, onFallback, onActivate }: Props) {
   const [phase, setPhase] = useState<Phase>("idle");

@@ -18,6 +18,7 @@ export default function Reflection({ config, onComplete }: { config: OrderConfig
     return () => [one, two, three].forEach(window.clearTimeout);
   }, []);
   return <main className="reflection-scene">
+    <div className="reflection-portrait" style={{ backgroundImage: `url(${config.photos[5]})` }} />
     <div className="reflection-glow" />
     <p className={`reflection-kicker ${step >= 1 ? "is-visible" : ""}`}>{config.keywords.join(" · ")}</p>
     <h1 className={`reflection-line reflection-first ${step >= 1 ? "is-visible" : ""}`}>{lines[0]}</h1>
