@@ -177,11 +177,7 @@ export default function SummonCover({ config, onComplete, onFallback, onActivate
     }
   }, [onFallback]);
 
-  const toggleSound = useCallback(() => {
-    const next = !soundOn;
-    setSoundOn(next);
-    if (videoRef.current) videoRef.current.muted = !next;
-  }, [soundOn]);
+
 
   // ---- 可见性变化 ----
   useEffect(() => {
@@ -227,7 +223,7 @@ export default function SummonCover({ config, onComplete, onFallback, onActivate
   // 视频元素类名：根据 phase 控制可见性
   const isVideoVisible = phase === "playing" || phase === "outro";
   const videoClass = isVideoVisible ? "summon-video" : "summon-video-bg";
-  const videoMuted = phase === "idle" || phase === "summoning" ? true : !soundOn;
+  const videoMuted = true;
 
   // ---- 渲染（所有 phase 共享同一 video 元素）----
   return (
@@ -268,9 +264,6 @@ export default function SummonCover({ config, onComplete, onFallback, onActivate
       {/* 播放控制（playing 时显示） */}
       {phase === "playing" && (
         <>
-          <button className="summon-sound" onClick={toggleSound}>
-            {soundOn ? "声音 · 开" : "声音 · 关"}
-          </button>
           <button className="summon-skip" onClick={() => {
             if (rafRef.current) cancelAnimationFrame(rafRef.current);
             if (fadeRef.current) clearTimeout(fadeRef.current);
