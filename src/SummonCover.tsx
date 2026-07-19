@@ -80,6 +80,7 @@ export default function SummonCover({ config, onComplete, onFallback, onActivate
     if (completedRef.current) return;
     completedRef.current = false;
     onActivate?.();
+    setSoundOn(true);
     safeSetPhase("summoning");
     setProgress(0);
     startTimeRef.current = performance.now();
@@ -282,6 +283,8 @@ export default function SummonCover({ config, onComplete, onFallback, onActivate
       )}
 
       {phase !== "loading" && phase !== "playing" && phase !== "outro" && <div className="summon-cover-title" style={{ opacity: progress >= 35 ? Math.min(1, (progress - 35) / 35) : 0 }}>此刻的我</div>}
+
+      {phase === "idle" && !soundOn && <button className="summon-audio-start" onPointerDown={e => { e.stopPropagation(); setSoundOn(true); onActivate?.(); }}>轻触开启声音</button>}
 
       {/* 引导提示（idle 时显示） */}
       {phase === "idle" && (

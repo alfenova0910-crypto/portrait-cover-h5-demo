@@ -15,14 +15,21 @@ export default function Home() {
   const [introReady, setIntroReady] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
   const musicRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
+  if (!musicRef.current) {
     const music = new Audio(config.backgroundMusic);
-    music.loop = true;
+    music.preload = "auto";
+    music.loop = false;
     music.volume = 0.52;
     musicRef.current = music;
-    return () => { music.pause(); musicRef.current = null; };
-  }, []);
+  }
+  const startMusic = () => {
+    const music = musicRef.current;
+    if (!music) return;
+    if (music.ended) music.currentTime = 0;
+    music.play().catch(() => {});
+  };
+
+  useEffect(() => () => { musicRef.current?.pause(); }, []);
 
   // 由订单数据驱动的消费入口
   const { photos, tier, choice, themeSkin } = config;
@@ -31,9 +38,7 @@ export default function Home() {
   const handleSummonFallback = () => setPhase("intro");
 
   useEffect(() => {
-    const ambient = <audio ref={musicRef} src={config.backgroundMusic} loop preload="auto" />;
-
-  if (phase === "intro") {
+    if (phase === "intro") {
       const timeout = window.setTimeout(() => setIntroReady(true), 1650);
       return () => window.clearTimeout(timeout);
     }
@@ -47,15 +52,13 @@ export default function Home() {
         config={config}
         onComplete={handleSummonComplete}
         onFallback={handleSummonFallback}
-        onActivate={() => { musicRef.current?.play().catch(() => {}); }}
+        onActivate={startMusic}
       />
       </>
     );
   }
 
   // ---- 黑场章节（数据驱动章节标题） ----
-  const ambient = <audio ref={musicRef} src={config.backgroundMusic} loop preload="auto" />;
-
   if (phase === "intro") {
     // 根据 choice 决定章节文案
     const chapterTitle =
