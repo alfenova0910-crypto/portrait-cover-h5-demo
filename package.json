@@ -1,0 +1,1 @@
+{"name":"portrait-cover-h5-demo","private":true,"scripts":{"build":"vite build"},"dependencies":{"@vitejs/plugin-react":"latest","puppeteer":"^25.3.0","react":"latest","react-dom":"latest","typescript":"latest","vite":"latest"}}

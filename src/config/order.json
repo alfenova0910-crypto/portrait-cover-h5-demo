@@ -1,0 +1,24 @@
+{
+  "orderId": "20260719-001",
+  "customerName": "林女士",
+  "shootDate": "2026-07-19",
+  "tier": "portrait_story",
+  "choice": "strength",
+  "themeSkin": "wood",
+  "keywords": ["坚定", "生长", "从容"],
+  "summonPortrait": "./assets/photo-2.jpg",
+  "summonPortraitFocus": "56% 32%",
+  "photos": [
+    "./assets/photo-1.jpg",
+    "./assets/photo-2.jpg",
+    "./assets/photo-3.jpg",
+    "./assets/photo-4.jpg",
+    "./assets/photo-5.jpg",
+    "./assets/photo-6.jpg"
+  ],
+  "openingVideo": "./assets/opening.mp4",
+  "chapterVideo": "./assets/chapter-one-portal-v2.mp4",
+  "memoryBackdrop": "./assets/chapter-one-memory-backdrop.jpg",
+  "backgroundMusic": "./assets/portrait-atmosphere.mp3",
+  "downloadUrl": ""
+}
